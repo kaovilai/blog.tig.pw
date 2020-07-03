@@ -4,21 +4,25 @@
  */
 const interestingTagNames = ["button"];
 const interestingClassNames = ["widget"];
+const interestingAttributes = ["onclick","onfocus","mouseover","mousedown"];
 var gaTrackerName = "blogger";
+
 for(i in interestingTagNames){
-    var elements = document.getElementsByTagName(interestingTagNames[i]);
-    for(j in elements){ //element = single button
-        var element = elements[j];
-        if(typeof element == undefined || element.tagName == undefined) continue;
-        element.setAttribute("onclick",gaSendElement(element));
-    }
+    sendElements(document.getElementsByTagName(interestingTagNames[i]));
 }
 for(i in interestingClassNames){
-    var elements = document.getElementsByClassName(interestingClassNames[i]);
+    sendElements(document.getElementsByClassName(interestingClassNames[i]));
+}
+/**
+ * Send element to GA
+ * @param {*} elements 
+ */
+function sendElements(elements){
     for(j in elements){ //element = single button
         var element = elements[j];
-        if(typeof element == undefined || element.tagName == undefined) continue;
-        element.setAttribute("onclick",gaSendElement(element));
+        if(typeof element == "undefined" || typeof element.tagName == "undefined" || typeof element == "function") continue;
+        for(i in interestingAttributes)
+            element.setAttribute(interestingAttributes[i],gaSendElement(element,interestingAttributes[i]));
     }
 }
 
@@ -26,8 +30,9 @@ for(i in interestingClassNames){
  * String for onclick for Send to google analytics
  * @param {*} element 
  */
-function gaSendElement(element){
-    return gaSend('event','click',element.tagName,'id: '+ element.id +' class: ' + element.className);
+function gaSendElement(element,hit){
+    hit = (typeof hit != "undefined") ? hit : "onclick";
+    return gaSend('event',hit,element.tagName,'id: '+ element.id +' class: ' + element.className);
 }
 /**
  * String for onclick for Send to google analytics
