@@ -2,18 +2,20 @@
  * Author: Passawit Kaovilai
  * Purpose: To customize a blogger.com blog's html without using built in edit-html for portability between themes
  */
-const interestingTagNames = ["button"];
+const interestingTagNames = ["button","a"];
 const interestingClassNames = ["widget"];
-const interestingAttributes = ["onclick","onfocus","mouseover","mousedown"];
+const interestingAttributes = ["onclick","onfocus","onmouseover","onmousedown"];
 var gaTrackerName = "blogger";
 
-for(i in interestingTagNames){
-    sendElements(document.getElementsByTagName(interestingTagNames[i]));
+function adjsloaded(){
+    for(i in interestingTagNames){
+        sendElements(document.getElementsByTagName(interestingTagNames[i]));
+    }
+    for(i in interestingClassNames){
+        sendElements(document.getElementsByClassName(interestingClassNames[i]));
+    }
 }
-for(i in interestingClassNames){
-    sendElements(document.getElementsByClassName(interestingClassNames[i]));
-}
-/**
+    /**
  * Send element to GA
  * @param {*} elements 
  */
