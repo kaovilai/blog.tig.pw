@@ -24,11 +24,10 @@ function adjsloaded(){
  * Perform card stacking if ad is a credit card.
  */
 function cardStack(cardHeight){
-    cardHeight = (typeof cardHeight == "undefined") ? cardHeightDefault : cardHeight;
+    // cardHeight = (typeof cardHeight == "undefined") ? cardHeightDefault : cardHeight;
     var adjs = document.getElementsByClassName('adjs');
     var cardstackStyle = document.createElement('style');
     cardstackStyle.id = "cardstack-style";
-    var cardHeight;
     if(adjs.length == 0) return;
     for(var i = 0; i < adjs.length; i++){
         if(typeof adjs[i].src != "string") continue;
@@ -36,27 +35,35 @@ function cardStack(cardHeight){
             if(!adjs[i].classList.contains('cardstack')) adjs[i].className += ' cardstack';
             if(!isCardStackElement(adjs[Number(i)+1])){
                 if(!adjs[i].classList.contains('lastcard')) adjs[i].className += ' lastcard';
-                //cardHeight = adjs[i].height;
-                //console.log('cardHeight is' + cardHeight);
+
+                if(cardHeight == 0 || typeof cardHeight == "undefined" || cardHeight == null){
+                    cardHeight = adjs[i].parentElement.offsetWidth * 0.65; //.65 ratio height by width of CCs
+                    // console.log('cardHeight set');
+                }
+                //console.log('cardHeight is' + adjs[i].height);
+                //console.log('cardWidth is' + adjs[i].width);
             }
         }
     }
-    if(document.getElementById(cardstackStyle.id) == null){
+    if(typeof cardHeight != 'undefined' && document.getElementById(cardstackStyle.id) == null){
         cardstackStyle.innerHTML = '\
         .adjs.cardstack:hover { \
             margin-bottom: 0;\
             -webkit-transform:rotate(15deg) scale(1.05);\
         } \
         .adjs.cardstack { \
-            margin-bottom: -' + cardHeight*.7 + 'px;\
+            margin-bottom: -' + cardHeight*.5 + 'px;\
             transition: .35s;\
         }\
         .adjs.cardstack.lastcard { \
             margin-bottom: 0;\
         }'
+        // console.log('ch:'+cardHeight);
+        // console.log('marginbottom:'+cardHeight*.5);
         document.head.insertAdjacentElement('afterbegin',cardstackStyle);
     }
 }
+
 /**
  * check if is card stack
  * @param {*} element element to check
