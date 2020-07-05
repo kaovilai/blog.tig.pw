@@ -29,7 +29,7 @@ function cardStack(cardHeight){
     var cardHeight;
     if(adjs.length == 0) return;
     for(var i = 0; i < adjs.length; i++){
-        if(typeof adjs[i].currentSrc != "string") continue;
+        if(typeof adjs[i].src != "string") continue;
         if(isCardStackElement(adjs[i])){
             if(!adjs[i].classList.contains('cardstack')) adjs[i].className += ' cardstack';
             if(!isCardStackElement(adjs[Number(i)+1])){
@@ -43,7 +43,7 @@ function cardStack(cardHeight){
         cardstackStyle.innerHTML = '\
         .adjs.cardstack:hover { \
             margin-bottom: 0;\
-            -webkit-transform:rotate(15deg);\
+            -webkit-transform:rotate(15deg) scale(1.05);\
         } \
         .adjs.cardstack { \
             margin-bottom: -' + cardHeight*.7 + 'px;\
@@ -61,7 +61,7 @@ function cardStack(cardHeight){
  * @returns boolean
  */
 function isCardStackElement(element){
-    var curSrc = element.currentSrc;
+    var curSrc = element.src;
     if(typeof curSrc == 'undefined') return false;
     var checkfor = [
         'aexp-static.com',
