@@ -106,6 +106,8 @@ function gaSendElement(element,hit){
  * @param {*} lab 
  */
 function gaSend(hit,cat,act,lab){
+    if(gaTrackerName == '')
+        return 'ga('+'\''+'send' +'\',\''+ hit+'\',\''+cat+'\',\''+act+'\',\''+lab+'\')';
     return 'ga('+'\''+gaTrackerName+'.send' +'\',\''+ hit+'\',\''+cat+'\',\''+act+'\',\''+lab+'\')';
 }
 
