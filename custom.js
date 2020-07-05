@@ -9,11 +9,13 @@ var gaTrackerName = "blogger";
 const cardHeightDefault = 175;
 
 function adjsloaded(){
-    for(i in interestingTagNames){
-        sendElements(document.getElementsByTagName(interestingTagNames[i]));
-    }
-    for(i in interestingClassNames){
-        sendElements(document.getElementsByClassName(interestingClassNames[i]));
+    if(typeof ga != "undefined") {
+        for(i in interestingTagNames){
+            sendElements(document.getElementsByTagName(interestingTagNames[i]));
+        }
+        for(i in interestingClassNames){
+            sendElements(document.getElementsByClassName(interestingClassNames[i]));
+        }
     }
     cardStack();
 }
