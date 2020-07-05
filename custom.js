@@ -43,11 +43,11 @@ function cardStack(cardHeight){
         cardstackStyle.innerHTML = '\
         .adjs.cardstack:hover { \
             margin-bottom: 0;\
-            rotate: 15deg;\
+            -webkit-transform:rotate(15deg);\
         } \
         .adjs.cardstack { \
             margin-bottom: -' + cardHeight*.7 + 'px;\
-            transition: .2s;\
+            transition: .35s;\
         }\
         .adjs.cardstack.lastcard { \
             margin-bottom: 0;\
