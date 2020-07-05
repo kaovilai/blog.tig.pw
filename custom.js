@@ -61,6 +61,7 @@ function cardStack(cardHeight){
  * @returns boolean
  */
 function isCardStackElement(element){
+    if(typeof element == 'undefined') return false;
     var curSrc = element.src;
     if(typeof curSrc == 'undefined') return false;
     var checkfor = [
