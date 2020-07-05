@@ -66,7 +66,8 @@ function isCardStackElement(element){
     var checkfor = [
         'aexp-static.com',
         'discovercard.com',
-        'deserve.com'
+        'deserve.com',
+        'github.tig.pw/blog.tig.pw/img/card/'
     ];
     for (var i = 0; i < checkfor.length; i++){
         if(curSrc.includes(checkfor[i])) return true;
