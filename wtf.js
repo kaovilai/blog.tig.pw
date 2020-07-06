@@ -112,6 +112,7 @@ function getAdElementSets(adsets){
         adelement.rel='sponsored';
         var img = document.createElement('img');
         img.src = adsets[i]['img'];
+        img.alt = "an image was supposed to be here :( Who blocked me?"
         img.className = "adjs";
         adelement.insertAdjacentElement('afterbegin',img);
         adelementsets+=adelement.outerHTML + "<br>";
