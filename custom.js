@@ -50,6 +50,7 @@ function cardStack(cardHeight){
         cardstackStyle.innerHTML = '\
         .adjs.cardstack.rotate:hover { \
             rotate:90deg;\
+            margin-bottom: '+cardHeight*.115*3+'px;\
         } \
         .adjs.cardstack:hover { \
             margin-bottom: '+cardHeight*.115+'px;\
