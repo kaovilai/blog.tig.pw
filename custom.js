@@ -33,6 +33,7 @@ function cardStack(cardHeight){
         if(typeof adjs[i].src != "string") continue;
         if(isCardStackElement(adjs[i])){
             if(!adjs[i].classList.contains('cardstack')) adjs[i].className += ' cardstack';
+            if(!adjs[i].classList.contains('rotate') && isRotate(adjs[i])) adjs[i].className += ' rotate';
             if(!isCardStackElement(adjs[Number(i)+1])){
                 if(!adjs[i].classList.contains('lastcard') && !adjs[i].classList.contains('notlast')) adjs[i].className += ' lastcard';
 
@@ -47,6 +48,9 @@ function cardStack(cardHeight){
     }
     if(typeof cardHeight != 'undefined' && document.getElementById(cardstackStyle.id) == null){
         cardstackStyle.innerHTML = '\
+        .adjs.cardstack.rotate:hover { \
+            rotate:90deg;\
+        } \
         .adjs.cardstack:hover { \
             margin-bottom: '+cardHeight*.115+'px;\
         } \
@@ -78,6 +82,21 @@ function isCardStackElement(element){
         'deserve.com',
         'github.tig.pw/blog.tig.pw/img/card/'
     ];
+    for (var i = 0; i < checkfor.length; i++){
+        if(curSrc.includes(checkfor[i])) return true;
+    }
+    return false;
+}
+/**
+ * check if is card should be rotated upon hover
+ * @param {*} element element to check
+ * @returns boolean
+ */
+function isRotate(element){
+    if(typeof element == 'undefined') return false;
+    var curSrc = element.src;
+    if(typeof curSrc == 'undefined') return false;
+    var checkfor = ['https://github.tig.pw/blog.tig.pw/img/card/RobinhoodCard.webp'];
     for (var i = 0; i < checkfor.length; i++){
         if(curSrc.includes(checkfor[i])) return true;
     }
