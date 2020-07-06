@@ -114,6 +114,7 @@ function getAdElementSets(adsets){
         img.src = adsets[i]['img'];
         img.alt = "an image was supposed to be here :( Who blocked me?"
         img.className = "adjs";
+        img.style.willChange = "margin-bottom, -webkit-transform,-webkit-filter,transition, rotate";
         adelement.insertAdjacentElement('afterbegin',img);
         adelementsets+=adelement.outerHTML + "<br>";
     }
