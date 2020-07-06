@@ -34,7 +34,7 @@ function cardStack(cardHeight){
         if(isCardStackElement(adjs[i])){
             if(!adjs[i].classList.contains('cardstack')) adjs[i].className += ' cardstack';
             if(!isCardStackElement(adjs[Number(i)+1])){
-                if(!adjs[i].classList.contains('lastcard')) adjs[i].className += ' lastcard';
+                if(!adjs[i].classList.contains('lastcard') && !adjs[i].classList.contains('notlast')) adjs[i].className += ' lastcard';
 
                 if(cardHeight == 0 || typeof cardHeight == "undefined" || cardHeight == null){
                     cardHeight = adjs[i].parentElement.offsetWidth * 0.65; //.65 ratio height by width of CCs
