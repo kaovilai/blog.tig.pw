@@ -105,7 +105,7 @@ function sendElements(elements){
  */
 function gaSendElement(element,hit){
     hit = (typeof hit != "undefined") ? hit : "onclick";
-    return gaSend('event',hit,element.tagName,'id: '+ element.id +' class: ' + element.className);
+    return gaSend('event',hit,element.tagName,'id: '+ element.id +' class: ' + element.className + (element.tagName == "A") ? ' href:'+element.href : '');
 }
 /**
  * String for onclick for Send to google analytics
