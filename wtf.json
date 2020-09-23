@@ -31,6 +31,14 @@
         },
         {
             "network":"Personal_Referrals",
+            "company":"Chase",
+            "campaign":"Earn $200 cash back with Chase Freedom Unlimited credit card",
+            "href":"https://www.referyourchasecard.com/18f/2JRNVZSLZ8",
+            "img":"https://github.tig.pw/blog.tig.pw/img/card/freedom_flex.webp",
+            "expire":false
+        },
+        {
+            "network":"Personal_Referrals",
             "company":"Charles_Schwab",
             "campaign":"Schwab_Investor_Debit",
             "href":"https://www.schwab.com/checking",
