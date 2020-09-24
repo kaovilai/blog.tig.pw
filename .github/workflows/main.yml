@@ -21,20 +21,19 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Cache Closure Compiler
-      id: cache-closure
-      uses: actions/cache@v2
-      with:
-        path: |
-          closure-compiler-*.jar
-        key: ${{ runner.os }}--forever
+#     - name: Cache Closure Compiler
+#       id: cache-closure
+#       uses: actions/cache@v2
+#       with:
+#         path: |
+#           closure-compiler-*.jar
+#         key: ${{ runner.os }}--forever
     - name: Get Closure Compiler
-      if: steps.cache-closure.outputs.cache-hit != 'true'
+#       if: steps.cache-closure.outputs.cache-hit != 'true'
       run: |
         echo +--Getting Closure Compiler--+
-        wget -q https://dl.google.com/closure-compiler/compiler-latest.tar.gz
-        tar -xzvf compiler-*.tar.gz
+        npm install --save google-closure-compiler
     - name: Dry Compile
       run: |
         echo +--Dry Compiling--+
-        java -jar closure-compiler-v*.jar --js *.js
+        npx google-closure-compiler --js *.js
