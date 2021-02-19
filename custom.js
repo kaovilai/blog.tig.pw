@@ -49,7 +49,7 @@ function cardStack(cardHeight){
     if(typeof cardHeight != 'undefined' && document.getElementById(cardstackStyle.id) == null){
         cardstackStyle.innerHTML = '\
         .adjs.cardstack.rotate:hover { \
-            rotate:90deg;\
+            transform: rotate(90deg);\
             margin-bottom: '+cardHeight*.115*3+'px;\
         } \
         .adjs.cardstack:hover { \
