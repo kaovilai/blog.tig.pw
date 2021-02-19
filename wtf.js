@@ -6,7 +6,7 @@
 
 /** default ad url */
 const adjsonurl ="https://adjs.tig.pw/ad.json";
-const promoElement = '<a href="https://github.com/kaovilai/adjs" target="_blank"><p style="text-align: right; margin: 0; font-size: small"><i>populated by AdJS</i></p></a>';
+const promoElement = '<a href="https://github.com/kaovilai/AdJS" target="_blank"><p style="text-align: right; margin: 0; font-size: small"><i>populated by AdJS</i></p></a>';
 /**
  * Populate ad
  * NOTE: Take care to use undefined without quotes in `onload` instead of null
