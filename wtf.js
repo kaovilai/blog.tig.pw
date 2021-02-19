@@ -5,7 +5,7 @@
  */
 
 /** default ad url */
-const adjsonurl ="https://adjs.tig.pw/ad.json";
+const adjsonurl ="https://github.tig.pw/blog.tig.pw/wtf.json";
 const promoElement = '<a href="https://github.com/kaovilai/AdJS" target="_blank"><p style="text-align: right; margin: 0; font-size: small"><i>populated by AdJS</i></p></a>';
 /**
  * Populate ad
