@@ -97,7 +97,7 @@ function isRotate(element){
     if(typeof element == 'undefined') return false;
     var curSrc = element.src;
     if(typeof curSrc == 'undefined') return false;
-    var checkfor = ['https://github.tig.pw/blog.tig.pw/img/card/RobinhoodCard.webp'];
+    var checkfor = [];
     for (var i = 0; i < checkfor.length; i++){
         if(curSrc.includes(checkfor[i])) return true;
     }
