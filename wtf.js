@@ -57,7 +57,8 @@ function populateJSON(elementid, adkey, adjson){
     var adelementsets = getAdElementSets(adsets);
     var style = document.createElement('style');
     style.id='adjs-style';
-    element.innerHTML=promoElement;
+    if(adelementsets != "")
+        element.innerHTML=promoElement;
     if(document.getElementById(style.id) == null){
     style.innerHTML = '\
         img.adjs { \
